@@ -1,0 +1,263 @@
+# ***************
+# Open boundaries
+# ***************
+ &OBCS_PARM01
+ OB_Jnorth = 400*-1,
+ OB_Jsouth = 400*1,
+ OB_Ieast  = 512*-1,
+ OB_Iwest  = 512*1,
+# This flag check and equalise topography across open boundaries:
+#OBCSfixTopo = .TRUE.,
+ useOBCSprescribe=.TRUE.,
+ useOBCSbalance = .TRUE.,
+ OBCSbalanceSurf=.TRUE.,
+ OBCS_balanceFacN=0.4,
+ OBCS_balanceFacS=0,
+ OBCS_balanceFacE=1,
+ OBCS_balanceFacW=0,
+# sponge
+ useOBCSsponge=.TRUE.,
+ OBCSsponge_N       =.TRUE.,
+ OBCSsponge_S       =.TRUE.,
+ OBCSsponge_E       =.TRUE.,
+ OBCSsponge_W       =.TRUE.,
+ OBCSsponge_UatNS   =.FALSE.,
+ OBCSsponge_UatEW   =.TRUE.,
+ OBCSsponge_VatNS   =.TRUE.,
+ OBCSsponge_VatEW   =.FALSE.,
+ OBCSsponge_Theta   =.FALSE.,
+ OBCSsponge_Salt    =.FALSE.,
+#- use 1rst Order upwind for outflow only:
+# OBCS_u1_adv_T = 1,
+# OBCS_u1_adv_S = 1,
+#
+ OBNsFile='vosaline_1995_2018_N.bin',
+ OBNtFile='votemper_1995_2018_N.bin',
+ OBNuFile='vozocrte_1995_2018_N.bin',
+ OBNvFile='vomecrtn_1995_2018_N_bal.bin',
+#
+ OBSsFile='vosaline_1995_2018_S.bin',
+ OBStFile='votemper_1995_2018_S.bin',
+ OBSuFile='vozocrte_1995_2018_S.bin',
+ OBSvFile='vomecrtn_1995_2018_S_bal.bin',
+#
+ OBEsFile='vosaline_1995_2018_E.bin',
+ OBEtFile='votemper_1995_2018_E.bin',
+ OBEuFile='vozocrte_1995_2018_E_bal.bin',
+ OBEvFile='vomecrtn_1995_2018_E.bin',
+#
+ OBWsFile='vosaline_1995_2018_W.bin',
+ OBWtFile='votemper_1995_2018_W.bin',
+ OBWuFile='vozocrte_1995_2018_W_bal.bin',
+ OBWvFile='vomecrtn_1995_2018_W.bin',
+
+# ptracers
+ OBNptrFile(1)='/home/joonhi/research/boundary_bgc/dic_NNGv2LDEO_N_25years.bin',
+ OBSptrFile(1)='/home/joonhi/research/boundary_bgc/dic_NNGv2LDEO_S_25years.bin',
+ OBEptrFile(1)='/home/joonhi/research/boundary_bgc/dic_NNGv2LDEO_E_25years.bin',
+ OBWptrFile(1)='/home/joonhi/research/boundary_bgc/dic_NNGv2LDEO_W_25years.bin',
+
+ OBNptrFile(2)='/home/joonhi/research/boundary_bgc/no3_jbnu_N_25years.bin'
+ OBSptrFile(2)='/home/joonhi/research/boundary_bgc/no3_jbnu_S_25years.bin',
+ OBEptrFile(2)='/home/joonhi/research/boundary_bgc/no3_jbnu_E_25years.bin',
+ OBWptrFile(2)='/home/joonhi/research/boundary_bgc/no3_jbnu_W_25years.bin',
+
+ OBNptrFile(3)='/home/joonhi/research/boundary_bgc/NO2_N_512x400_25years.bin',
+ OBSptrFile(3)='/home/joonhi/research/boundary_bgc/NO2_S_512x400_25years.bin',
+ OBEptrFile(3)='/home/joonhi/research/boundary_bgc/NO2_E_512x400_25years.bin',
+ OBWptrFile(3)='/home/joonhi/research/boundary_bgc/NO2_W_512x400_25years.bin',
+
+ OBNptrFile(4)='/home/joonhi/research/boundary_bgc/NH4_N_512x400_25years.bin',
+ OBSptrFile(4)='/home/joonhi/research/boundary_bgc/NH4_S_512x400_25years.bin',
+ OBEptrFile(4)='/home/joonhi/research/boundary_bgc/NH4_E_512x400_25years.bin',
+ OBWptrFile(4)='/home/joonhi/research/boundary_bgc/NH4_W_512x400_25years.bin',
+
+ OBNptrFile(5)='/home/joonhi/research/boundary_bgc/woapo4_25years_512x400_N.bin',
+ OBSptrFile(5)='/home/joonhi/research/boundary_bgc/woapo4_25years_512x400_S.bin',
+ OBEptrFile(5)='/home/joonhi/research/boundary_bgc/woapo4_25years_512x400_E.bin',
+ OBWptrFile(5)='/home/joonhi/research/boundary_bgc/woapo4_25years_512x400_W.bin',
+# obcsNperiod(5)= -12.,
+# obcsSperiod(5)= -12.,
+# obcsEperiod(5)= -12.,
+# obcsWperiod(5)= -12.,
+
+ OBNptrFile(6)='/home/joonhi/research/boundary_bgc/FeT_N_512x400_25years.bin',
+ OBSptrFile(6)='/home/joonhi/research/boundary_bgc/FeT_S_512x400_25years.bin',
+ OBEptrFile(6)='/home/joonhi/research/boundary_bgc/FeT_E_512x400_25years.bin',
+ OBWptrFile(6)='/home/joonhi/research/boundary_bgc/FeT_W_512x400_25years.bin',
+
+ OBNptrFile(7)='/home/joonhi/research/boundary_bgc/SiO2_N_512x400_25years.bin',
+ OBSptrFile(7)='/home/joonhi/research/boundary_bgc/SiO2_S_512x400_25years.bin',
+ OBEptrFile(7)='/home/joonhi/research/boundary_bgc/SiO2_E_512x400_25years.bin',
+ OBWptrFile(7)='/home/joonhi/research/boundary_bgc/SiO2_W_512x400_25years.bin',
+
+ OBNptrFile(8)='/home/joonhi/research/boundary_bgc/DOC_N_512x400_25years.bin',
+ OBSptrFile(8)='/home/joonhi/research/boundary_bgc/DOC_S_512x400_25years.bin',
+ OBEptrFile(8)='/home/joonhi/research/boundary_bgc/DOC_E_512x400_25years.bin',
+ OBWptrFile(8)='/home/joonhi/research/boundary_bgc/DOC_W_512x400_25years.bin',
+
+ OBNptrFile(9)='/home/joonhi/research/boundary_bgc/DON_N_512x400_25years.bin',
+ OBSptrFile(9)='/home/joonhi/research/boundary_bgc/DON_S_512x400_25years.bin',
+ OBEptrFile(9)='/home/joonhi/research/boundary_bgc/DON_E_512x400_25years.bin',
+ OBWptrFile(9)='/home/joonhi/research/boundary_bgc/DON_W_512x400_25years.bin',
+
+ OBNptrFile(10)='/home/joonhi/research/boundary_bgc/DOP_N_512x400_25years.bin',
+ OBSptrFile(10)='/home/joonhi/research/boundary_bgc/DOP_S_512x400_25years.bin',
+ OBEptrFile(10)='/home/joonhi/research/boundary_bgc/DOP_E_512x400_25years.bin',
+ OBWptrFile(10)='/home/joonhi/research/boundary_bgc/DOP_W_512x400_25years.bin',
+
+ OBNptrFile(11)='/home/joonhi/research/boundary_bgc/DOFe_N_512x400_25years.bin',
+ OBSptrFile(11)='/home/joonhi/research/boundary_bgc/DOFe_S_512x400_25years.bin',
+ OBEptrFile(11)='/home/joonhi/research/boundary_bgc/DOFe_E_512x400_25years.bin',
+ OBWptrFile(11)='/home/joonhi/research/boundary_bgc/DOFe_W_512x400_25years.bin',
+
+ OBNptrFile(12)='/home/joonhi/research/boundary_bgc/POC_N_512x400_25years.bin',
+ OBSptrFile(12)='/home/joonhi/research/boundary_bgc/POC_S_512x400_25years.bin',
+ OBEptrFile(12)='/home/joonhi/research/boundary_bgc/POC_E_512x400_25years.bin',
+ OBWptrFile(12)='/home/joonhi/research/boundary_bgc/POC_W_512x400_25years.bin',
+
+ OBNptrFile(13)='/home/joonhi/research/boundary_bgc/PON_N_512x400_25years.bin',
+ OBSptrFile(13)='/home/joonhi/research/boundary_bgc/PON_S_512x400_25years.bin',
+ OBEptrFile(13)='/home/joonhi/research/boundary_bgc/PON_E_512x400_25years.bin',
+ OBWptrFile(13)='/home/joonhi/research/boundary_bgc/PON_W_512x400_25years.bin',
+
+ OBNptrFile(14)='/home/joonhi/research/boundary_bgc/POP_N_512x400_25years.bin',
+ OBSptrFile(14)='/home/joonhi/research/boundary_bgc/POP_S_512x400_25years.bin',
+ OBEptrFile(14)='/home/joonhi/research/boundary_bgc/POP_E_512x400_25years.bin',
+ OBWptrFile(14)='/home/joonhi/research/boundary_bgc/POP_W_512x400_25years.bin',
+
+ OBNptrFile(15)='/home/joonhi/research/boundary_bgc/POFe_N_512x400_25years.bin',
+ OBSptrFile(15)='/home/joonhi/research/boundary_bgc/POFe_S_512x400_25years.bin',
+ OBEptrFile(15)='/home/joonhi/research/boundary_bgc/POFe_E_512x400_25years.bin',
+ OBWptrFile(15)='/home/joonhi/research/boundary_bgc/POFe_W_512x400_25years.bin',
+ 
+ OBNptrFile(16)='/home/joonhi/research/boundary_bgc/POSi_N_512x400_25years.bin',
+ OBSptrFile(16)='/home/joonhi/research/boundary_bgc/POSi_S_512x400_25years.bin',
+ OBEptrFile(16)='/home/joonhi/research/boundary_bgc/POSi_E_512x400_25years.bin',
+ OBWptrFile(16)='/home/joonhi/research/boundary_bgc/POSi_W_512x400_25years.bin',
+
+ OBNptrFile(17)='/home/joonhi/research/boundary_bgc/PIC_N_512x400_25years.bin',
+ OBSptrFile(17)='/home/joonhi/research/boundary_bgc/PIC_S_512x400_25years.bin',
+ OBEptrFile(17)='/home/joonhi/research/boundary_bgc/PIC_E_512x400_25years.bin',
+ OBWptrFile(17)='/home/joonhi/research/boundary_bgc/PIC_W_512x400_25years.bin',
+
+ OBNptrFile(18)='/home/joonhi/research/boundary_bgc/alk_jbnu_N_25years.bin',
+ OBSptrFile(18)='/home/joonhi/research/boundary_bgc/alk_jbnu_S_25years.bin',
+ OBEptrFile(18)='/home/joonhi/research/boundary_bgc/alk_jbnu_E_25years.bin',
+ OBWptrFile(18)='/home/joonhi/research/boundary_bgc/alk_jbnu_W_25years.bin',
+
+ OBNptrFile(19)='/home/joonhi/research/boundary_bgc/o2_jbnu_N_25years.bin',
+ OBSptrFile(19)='/home/joonhi/research/boundary_bgc/o2_jbnu_S_25years.bin',
+ OBEptrFile(19)='/home/joonhi/research/boundary_bgc/o2_jbnu_E_25years.bin',
+ OBWptrFile(19)='/home/joonhi/research/boundary_bgc/o2_jbnu_W_25years.bin',
+
+ OBNptrFile(20)='/home/joonhi/research/boundary_bgc/CDOM_N_512x400_25years.bin',
+ OBSptrFile(20)='/home/joonhi/research/boundary_bgc/CDOM_S_512x400_25years.bin',
+ OBEptrFile(20)='/home/joonhi/research/boundary_bgc/CDOM_E_512x400_25years.bin',
+ OBWptrFile(20)='/home/joonhi/research/boundary_bgc/CDOM_W_512x400_25years.bin',
+
+ OBNptrFile(21)='/home/joonhi/research/boundary_bgc/c1_N_512x400_25years.bin',
+ OBSptrFile(21)='/home/joonhi/research/boundary_bgc/c1_S_512x400_25years.bin',
+ OBEptrFile(21)='/home/joonhi/research/boundary_bgc/c1_E_512x400_25years.bin',
+ OBWptrFile(21)='/home/joonhi/research/boundary_bgc/c1_W_512x400_25years.bin',
+
+ OBNptrFile(22)='/home/joonhi/research/boundary_bgc/c2_N_512x400_25years.bin',
+ OBSptrFile(22)='/home/joonhi/research/boundary_bgc/c2_S_512x400_25years.bin',
+ OBEptrFile(22)='/home/joonhi/research/boundary_bgc/c2_E_512x400_25years.bin',
+ OBWptrFile(22)='/home/joonhi/research/boundary_bgc/c2_W_512x400_25years.bin',
+
+ OBNptrFile(23)='/home/joonhi/research/boundary_bgc/c3_N_512x400_25years.bin',
+ OBSptrFile(23)='/home/joonhi/research/boundary_bgc/c3_S_512x400_25years.bin',
+ OBEptrFile(23)='/home/joonhi/research/boundary_bgc/c3_E_512x400_25years.bin',
+ OBWptrFile(23)='/home/joonhi/research/boundary_bgc/c3_W_512x400_25years.bin',
+
+ OBNptrFile(24)='/home/joonhi/research/boundary_bgc/c4_N_512x400_25years.bin',
+ OBSptrFile(24)='/home/joonhi/research/boundary_bgc/c4_S_512x400_25years.bin',
+ OBEptrFile(24)='/home/joonhi/research/boundary_bgc/c4_E_512x400_25years.bin',
+ OBWptrFile(24)='/home/joonhi/research/boundary_bgc/c4_W_512x400_25years.bin',
+
+ OBNptrFile(25)='/home/joonhi/research/boundary_bgc/c5_N_512x400_25years.bin',
+ OBSptrFile(25)='/home/joonhi/research/boundary_bgc/c5_S_512x400_25years.bin',
+ OBEptrFile(25)='/home/joonhi/research/boundary_bgc/c5_E_512x400_25years.bin',
+ OBWptrFile(25)='/home/joonhi/research/boundary_bgc/c5_W_512x400_25years.bin',
+
+ OBNptrFile(26)='/home/joonhi/research/boundary_bgc/c6_N_512x400_25years.bin',
+ OBSptrFile(26)='/home/joonhi/research/boundary_bgc/c6_S_512x400_25years.bin',
+ OBEptrFile(26)='/home/joonhi/research/boundary_bgc/c6_E_512x400_25years.bin',
+ OBWptrFile(26)='/home/joonhi/research/boundary_bgc/c6_W_512x400_25years.bin',
+
+ OBNptrFile(27)='/home/joonhi/research/boundary_bgc/c7_N_512x400_25years.bin',
+ OBSptrFile(27)='/home/joonhi/research/boundary_bgc/c7_S_512x400_25years.bin',
+ OBEptrFile(27)='/home/joonhi/research/boundary_bgc/c7_E_512x400_25years.bin',
+ OBWptrFile(27)='/home/joonhi/research/boundary_bgc/c7_W_512x400_25years.bin',
+
+ OBNptrFile(28)='/home/joonhi/research/boundary_bgc/c8_N_512x400_25years.bin',
+ OBSptrFile(28)='/home/joonhi/research/boundary_bgc/c8_S_512x400_25years.bin',
+ OBEptrFile(28)='/home/joonhi/research/boundary_bgc/c8_E_512x400_25years.bin',
+ OBWptrFile(28)='/home/joonhi/research/boundary_bgc/c8_W_512x400_25years.bin',
+
+ OBNptrFile(29)='/home/joonhi/research/boundary_bgc/c9_N_512x400_25years.bin',
+ OBSptrFile(29)='/home/joonhi/research/boundary_bgc/c9_S_512x400_25years.bin',
+ OBEptrFile(29)='/home/joonhi/research/boundary_bgc/c9_E_512x400_25years.bin',
+ OBWptrFile(29)='/home/joonhi/research/boundary_bgc/c9_W_512x400_25years.bin', 
+
+ OBNptrFile(30)='/home/joonhi/research/boundary_bgc/c10_N_512x400_25years.bin',
+ OBSptrFile(30)='/home/joonhi/research/boundary_bgc/c10_S_512x400_25years.bin',
+ OBEptrFile(30)='/home/joonhi/research/boundary_bgc/c10_E_512x400_25years.bin',
+ OBWptrFile(30)='/home/joonhi/research/boundary_bgc/c10_W_512x400_25years.bin',
+
+ OBNptrFile(31)='/home/joonhi/research/boundary_bgc/Chl1_N_512x400_25years.bin',
+ OBSptrFile(31)='/home/joonhi/research/boundary_bgc/Chl1_S_512x400_25years.bin',
+ OBEptrFile(31)='/home/joonhi/research/boundary_bgc/Chl1_E_512x400_25years.bin',
+ OBWptrFile(31)='/home/joonhi/research/boundary_bgc/Chl1_W_512x400_25years.bin',
+
+ OBNptrFile(32)='/home/joonhi/research/boundary_bgc/Chl2_N_512x400_25years.bin',
+ OBSptrFile(32)='/home/joonhi/research/boundary_bgc/Chl2_S_512x400_25years.bin',
+ OBEptrFile(32)='/home/joonhi/research/boundary_bgc/Chl2_E_512x400_25years.bin',
+ OBWptrFile(32)='/home/joonhi/research/boundary_bgc/Chl2_W_512x400_25years.bin',
+
+ OBNptrFile(33)='/home/joonhi/research/boundary_bgc/Chl3_N_512x400_25years.bin',
+ OBSptrFile(33)='/home/joonhi/research/boundary_bgc/Chl3_S_512x400_25years.bin',
+ OBEptrFile(33)='/home/joonhi/research/boundary_bgc/Chl3_E_512x400_25years.bin',
+ OBWptrFile(33)='/home/joonhi/research/boundary_bgc/Chl3_W_512x400_25years.bin',
+
+ OBNptrFile(34)='/home/joonhi/research/boundary_bgc/Chl4_N_512x400_25years.bin',
+ OBSptrFile(34)='/home/joonhi/research/boundary_bgc/Chl4_S_512x400_25years.bin',
+ OBEptrFile(34)='/home/joonhi/research/boundary_bgc/Chl4_E_512x400_25years.bin',
+ OBWptrFile(34)='/home/joonhi/research/boundary_bgc/Chl4_W_512x400_25years.bin',
+
+ OBNptrFile(35)='/home/joonhi/research/boundary_bgc/Chl5_N_512x400_25years.bin',
+ OBSptrFile(35)='/home/joonhi/research/boundary_bgc/Chl5_S_512x400_25years.bin',
+ OBEptrFile(35)='/home/joonhi/research/boundary_bgc/Chl5_E_512x400_25years.bin',
+ OBWptrFile(35)='/home/joonhi/research/boundary_bgc/Chl5_W_512x400_25years.bin',
+
+ OBNptrFile(36)='/home/joonhi/research/boundary_bgc/Chl6_N_512x400_25years.bin',
+ OBSptrFile(36)='/home/joonhi/research/boundary_bgc/Chl6_S_512x400_25years.bin',
+ OBEptrFile(36)='/home/joonhi/research/boundary_bgc/Chl6_E_512x400_25years.bin',
+ OBWptrFile(36)='/home/joonhi/research/boundary_bgc/Chl6_W_512x400_25years.bin',
+ 
+ useOBCStides = .TRUE.,
+#components   = M2       S2     N2       K2       K1      O1       P1       Q1       Mf         Mm
+#periods (hr) = 12.4206  12     12.6583  11.9672  23.9345 25.8193  24.0659  26.8684  327.8599   661.31
+ tidalPeriod  = 44714.16,43200.,45569.88,43081.92,86164.2,92949.48,86637.24,96726.24,1180295.64,2380716.
+#
+ OBNamFile='OB_northern_amp_v',
+ OBEamFile='OB_eastern_amp_u',
+ OBSamFile='OB_southern_amp_v',
+ OBWamFile='OB_western_amp_u',
+ OBNphFile='OB_northern_pha_v',
+ OBEphFile='OB_eastern_pha_u',
+ OBSphFile='OB_southern_pha_v',
+ OBWphFile='OB_western_pha_u',
+ &
+
+# *****************************************
+# # Sponge Layer Parameters.
+# # *****************************************
+ &OBCS_PARM03
+ Urelaxobcsinner=432000.E0,
+ Urelaxobcsbound=43200.E0,
+ Vrelaxobcsinner=432000.E0,
+ Vrelaxobcsbound=43200.E0,
+ spongeThickness=10,
+ &
