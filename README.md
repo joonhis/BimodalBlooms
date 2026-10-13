@@ -3,4 +3,4 @@ Analysis code for bloom identification and model configuration files used in “
 
 Analysis_code directory: contains the code used to identify spring and fall blooms and select bimodal bloom regions based on seasonal Chl-a concentrations.
 
-Model_set directory: contains the model configuration files and package options used for the numerical simulations in this study.
+Model_set directory: contains the model configuration files and package options used for the numerical simulation in this study.
