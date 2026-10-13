@@ -3,13 +3,13 @@
 
 # In[ ]:
 
-
 import numpy as np
 
 
-def identify_bimodal_bloom(chl_clim, depth):
+def identify_bloom_regions(chl_clim, depth, depth_threshold=2000):
     """
-    Identify grid cells exhibiting both spring and fall phytoplankton blooms.
+    Identify grid cells exhibiting spring blooms, fall blooms,
+    and both spring and fall blooms.
 
     Parameters
     ----------
@@ -21,39 +21,106 @@ def identify_bimodal_bloom(chl_clim, depth):
         Bathymetry in meters.
         Expected shape: (ny, nx)
 
+    depth_threshold : float, optional
+        Minimum water depth used to exclude coastal regions.
+        Default is 2000 m.
+
     Returns
     -------
-    bimodal_bloom_mask : np.ndarray
-        Boolean mask indicating grid cells satisfying all criteria.
+    spring_bloom_mask : np.ndarray
+        Boolean mask for grid cells exhibiting a spring bloom.
 
-    lat_idx, lon_idx : np.ndarray
-        Indices of grid cells satisfying the bimodal bloom criteria.
+    fall_bloom_mask : np.ndarray
+        Boolean mask for grid cells exhibiting a fall bloom.
+
+    bimodal_bloom_mask : np.ndarray
+        Boolean mask for grid cells exhibiting both spring and fall blooms.
+
+    spring_idx : tuple
+        Indices of spring bloom grid cells.
+
+    fall_idx : tuple
+        Indices of fall bloom grid cells.
+
+    bimodal_idx : tuple
+        Indices of grid cells exhibiting both spring and fall blooms.
     """
 
-    # Seasonal median Chl-a
-    spring_chl = np.nanmedian(chl_clim[2:5,  ...], axis=0)       # MAM
-    summer_chl = np.nanmedian(chl_clim[5:8,  ...], axis=0)       # JJA
-    fall_chl   = np.nanmedian(chl_clim[8:11,  ...], axis=0)      # SON
-    winter_chl = np.nanmedian(chl_clim[[11, 0, 1],  ...], axis=0)  # DJF
+    # -------------------------------------------------------------------------
+    # 1. Seasonal median Chl-a
+    # -------------------------------------------------------------------------
 
-    # Bloom criteria
-    spring_bloom = spring_chl > winter_chl
-    fall_bloom   = fall_chl > summer_chl
+    spring_chl = np.nanmedian(
+        chl_clim[2:5, ...],
+        axis=0
+    )  # March-May
 
-    # Exclude coastal regions shallower than 2000 m
-    open_ocean = depth > 2000
+    summer_chl = np.nanmedian(
+        chl_clim[5:8, ...],
+        axis=0
+    )  # June-August
 
-    # Grid cells satisfying all criteria
-    bimodal_bloom_mask = (
-        spring_bloom
-        & fall_bloom
+    fall_chl = np.nanmedian(
+        chl_clim[8:11, ...],
+        axis=0
+    )  # September-November
+
+    winter_chl = np.nanmedian(
+        chl_clim[[11, 0, 1], ...],
+        axis=0
+    )  # December-February
+
+
+    # -------------------------------------------------------------------------
+    # 2. Open-ocean mask
+    # -------------------------------------------------------------------------
+
+    open_ocean = depth > depth_threshold
+
+
+    # -------------------------------------------------------------------------
+    # 3. Bloom identification
+    # -------------------------------------------------------------------------
+
+    # Spring bloom:
+    # median(MAM) > median(DJF)
+    spring_bloom_mask = (
+        (spring_chl > winter_chl)
         & open_ocean
     )
 
-    # Selected grid-cell indices
-    lat_idx, lon_idx = np.where(bimodal_bloom_mask)
+    # Fall bloom:
+    # median(SON) > median(JJA)
+    fall_bloom_mask = (
+        (fall_chl > summer_chl)
+        & open_ocean
+    )
 
-    return bimodal_bloom_mask, lat_idx, lon_idx
+    # Bimodal bloom:
+    # both spring and fall bloom criteria are satisfied
+    bimodal_bloom_mask = (
+        spring_bloom_mask
+        & fall_bloom_mask
+    )
+
+
+    # -------------------------------------------------------------------------
+    # 4. Grid-cell indices
+    # -------------------------------------------------------------------------
+
+    spring_idx = np.where(spring_bloom_mask)
+    fall_idx = np.where(fall_bloom_mask)
+    bimodal_idx = np.where(bimodal_bloom_mask)
+
+
+    return (
+        spring_bloom_mask,
+        fall_bloom_mask,
+        bimodal_bloom_mask,
+        spring_idx,
+        fall_idx,
+        bimodal_idx,
+    )
 
 
 # In[ ]:
