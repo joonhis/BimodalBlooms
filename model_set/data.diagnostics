@@ -38,7 +38,7 @@
 #---
    frequency(5) = 2628000.,
    fields(1:10,5) = 'TRAC21  ','TRAC22  ','TRAC23  ','TRAC24  ','TRAC25  ',
-                      'TRAC26 ', 'TRAC27  ', 'TRAC28  ','TRAC29  ','TRAC30  ',
+                      'TRAC26  ', 'TRAC27  ', 'TRAC28  ','TRAC29  ','TRAC30  ',
    filename(5) ='diags/monthly/biomass',
 #---
    frequency(6) = 2628000.,
